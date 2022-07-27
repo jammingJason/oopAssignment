@@ -35,11 +35,14 @@ class Garage {
 		this.capacity = cap;
 	}
 	add(obj) {
-		console.log(obj.typeOf);
-		if (this.vehicles.length <= this.capacity) {
-			this.vehicles.push(obj);
+		if (typeof obj === 'object') {
+			if (this.vehicles.length < this.capacity) {
+				this.vehicles.push(obj);
+			} else {
+				return 'Not enough room!';
+			}
 		} else {
-			return 'Not enough room!';
+			console.log('You can only store a vehicle in the garage.');
 		}
 	}
 }
